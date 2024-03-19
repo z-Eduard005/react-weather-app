@@ -1,4 +1,7 @@
 import styles from './LocationInfo.module.scss'
+import RainfallImg from '../shared/RainfallImg/RainfallImg'
+import WindImg from '../shared/WindImg/WindImg'
+import HumidityImg from '../shared/HumidityImg/HumidityImg'
 
 const LocationInfo = ({ currentWeather }) => {
   return (
@@ -16,9 +19,7 @@ const LocationInfo = ({ currentWeather }) => {
         <div>
           <div className={styles.left}>
             <div>
-              <div className={styles['box-img']}>
-                <img src="/assets/img/indicators/rain-fall.svg" alt='Rain fall indicator' className={styles['rain-fall-img']} />
-              </div>
+              <RainfallImg />
               <p>RainFall</p>
             </div>
           </div>
@@ -27,9 +28,7 @@ const LocationInfo = ({ currentWeather }) => {
         <div>
           <div className={styles.left}>
             <div>
-              <div className={styles['box-img']}>
-                <img src="/assets/img/indicators/wind.svg" alt='Wind indicator' className={styles['wind-img']} />
-              </div>
+              <WindImg />
               <p>Wind</p>
             </div>
           </div>
@@ -38,9 +37,7 @@ const LocationInfo = ({ currentWeather }) => {
         <div>
           <div className={styles.left}>
             <div>
-              <div className={styles['box-img']}>
-                <img src="/assets/img/indicators/humidity.svg" alt='Humidity indicator' className={styles['humidity-img']} />
-              </div>
+              <HumidityImg />
               <p>Humidity</p>
             </div>
           </div>
