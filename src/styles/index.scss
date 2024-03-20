@@ -52,12 +52,17 @@ input {
   padding: 25px;
   width: 100%;
   max-width: 818px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 
   >div {
     max-width: 425px;
     margin: auto;
     width: 100%;
   }
+}
+
+.text-center {
+  text-align: center;
 }
 
 @media only screen and (max-width: 475px) {

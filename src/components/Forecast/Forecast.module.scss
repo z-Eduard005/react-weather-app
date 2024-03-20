@@ -4,4 +4,124 @@
     font-weight: 500;
     margin-bottom: 25px;
   }
+
+  .forecast__day {
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 16px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color .2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    >div:first-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      >p {
+        font-weight: 600;
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+
+        p {
+          margin-right: 20px;
+          font-weight: 700;
+        }
+
+        img {
+          width: 56px;
+          height: 56px;
+        }
+      }
+    }
+
+    .additional {
+      overflow: hidden;
+      height: 100%;
+      max-height: 0;
+      transition: max-height .6s ease-in-out;
+
+      >div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 70%;
+        margin: 20px auto;
+        text-align: center;
+
+        >div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          p {
+            margin-top: 15px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  // onclick
+  .forecast__day.active {
+    .additional {
+      max-height: 130px;
+    }
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .forecast {
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .forecast__day {
+      padding: 12px 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .forecast {
+    h2 {
+      font-size: 24px;
+    }
+
+    .forecast__day {
+      font-size: 14px;
+
+      >div:first-child {
+
+        .right {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+
+      .additional {
+        >div {
+          max-width: 80%;
+        }
+      }
+    }
+  }
 }

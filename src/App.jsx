@@ -23,10 +23,14 @@ const App = () => {
       <div>
         <Header data={{ setLocation, apiKey }} />
         <main>
-          <LocationInfo currentWeather={forecast.current} />
-          <Forecast forecast={forecast.forecast} />
+          {!forecast ?
+            <h1 className='text-center'>Enter the city please</h1>
+            :
+            <>
+              <LocationInfo currentWeather={forecast} />
+              <Forecast forecast={forecast.forecast.forecastday.slice(1)} />
+            </>}
         </main>
-        {/* <h1>Enter the city please</h1> */}
       </div>
     </div>
   );
