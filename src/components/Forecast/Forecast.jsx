@@ -5,15 +5,22 @@ import WindImg from '../shared/WindImg/WindImg'
 import HumidityImg from '../shared/HumidityImg/HumidityImg'
 
 const Forecast = ({ forecast }) => {
-  const [dayActive, setDayActive] = useState(false)
+  const [dayActive, setDayActive] = useState(new Array(forecast.length).fill(false))
+
+  const handleDayClick = index => setDayActive(prev => {
+    const newDayActive = [...prev]
+    newDayActive[index] = !newDayActive[index]
+    return newDayActive
+  })
+
   return (
     <section className={styles['forecast']}>
-      <h2>Next 2 Days</h2>
+      <h2>Next {forecast.length} Days</h2>
       {forecast.map((day, index) => (
         <div
           key={index}
-          className={`${styles.forecast__day} ${dayActive ? styles.active : ''}`}
-          onClick={() => setDayActive(!dayActive)}
+          className={`${styles.forecast__day} ${dayActive[index] ? styles.active : ''}`}
+          onClick={() => handleDayClick(index)}
         >
           <div>
             <p>{index ? new Date(day.date).toLocaleDateString('en-US', { weekday: 'long' }) : 'Tomorrow'}</p>

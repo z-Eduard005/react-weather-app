@@ -69,6 +69,7 @@ const Header = ({ data }) => {
           )).slice(0, 5)}
         </div>
       </form>
+      {data.updateTime && <p className='text-center'>Last updated at: {data.updateTime} </p>}
     </header>
   );
 }
