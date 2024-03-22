@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import LocationInfo from './components/LocationInfo/LocationInfo';
 import Forecast from './components/Forecast/Forecast';
 
-const apiKey = process.env.WHEATHER_API_KEY
+const apiKey = process.env.REACT_APP_WHEATHER_API_KEY
 
 const App = () => {
   const [location, setLocation] = useState('')
