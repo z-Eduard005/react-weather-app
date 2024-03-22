@@ -59,7 +59,7 @@ const Header = ({ data }) => {
           onChange={handleInputChange}
         />
         <div className={styles.options}>
-          {hint.map((option, i) => (
+          {hint.length === 0 && hint.map((option, i) => (
             <Fragment key={i}>
               <div onClick={() => handleChooseOption(option.name, option.country)}>
                 <p>{`${option.name} (${option.country})`}</p>
