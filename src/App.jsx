@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import LocationInfo from './components/LocationInfo/LocationInfo';
 import Forecast from './components/Forecast/Forecast';
 
-const apiKey = process.env.REACT_APP_WHEATHER_API_KEY
+const apiKey = process.env.REACT_APP_API_KEY
 
 const App = () => {
   const [location, setLocation] = useState('')
@@ -17,13 +17,15 @@ const App = () => {
 
         fetch(url)
           .then(response => response.json())
-          .then(data => setForecast(data))
+          .then(data => {
+            setForecast(data)
+            setUpdateTime(new Date().toLocaleTimeString('en-US'))
+          })
           .catch(error => {
             console.error('Error while retrieving weather data:', error)
             setForecast('error')
+            setUpdateTime('')
           })
-
-        setUpdateTime(new Date().toLocaleTimeString('en-US'))
       }
     }
 
