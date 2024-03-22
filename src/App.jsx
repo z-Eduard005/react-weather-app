@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const fetchWeatherData = () => {
       if (location) {
-        const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3`
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3`
 
         fetch(url)
           .then(response => response.json())
