@@ -11,8 +11,8 @@ const Header = ({ data }) => {
   const handleInputChange = ({ target }) => {
     // search API-query
     setInput(target.value)
-    const url = `https://api.weatherapi.com/v1/search.json?key=${data.apiKey}&q=${input.trim()}`
-    if (input.trim()) {
+    const url = `https://api.weatherapi.com/v1/search.json?key=${data.apiKey}&q=${target.value.trim()}`
+    if (target.value.trim()) {
       clearTimeout(timeoutSearch)
 
       timeoutSearch = setTimeout(() => {

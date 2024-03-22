@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import LocationInfo from './components/LocationInfo/LocationInfo';
 import Forecast from './components/Forecast/Forecast';
@@ -6,7 +6,7 @@ import Forecast from './components/Forecast/Forecast';
 const apiKey = process.env.REACT_APP_API_KEY
 
 const App = () => {
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState(localStorage.getItem('location') || '')
   const [forecast, setForecast] = useState('')
   const [updateTime, setUpdateTime] = useState('')
 
@@ -31,6 +31,8 @@ const App = () => {
 
     fetchWeatherData()
     let intervalId = setInterval(fetchWeatherData, 1000 * 60 * 15);
+
+    localStorage.setItem('location', location)
 
     return () => clearInterval(intervalId);
   }, [location])
